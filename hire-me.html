@@ -184,11 +184,9 @@ textarea:focus {
 }
 
 #cursor {
-  font-weight: bold;
-  color: #00BFFF;
-  animation: blink 1s infinite;
-  font-size: 48px;
+  display: none; /* Hide the blinking | cursor */
 }
+
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -199,7 +197,10 @@ textarea:focus {
   position: relative;
   display: inline-block;
   overflow: hidden;
+  border-bottom: 2px solid #00BFFF; /* Always blue underline */
+  padding-bottom: 4px;
 }
+
 
 .underline-animated::after {
   content: "";
@@ -323,24 +324,25 @@ textarea:focus {
 
 
 .paper-plane-icon {
-  position: fixed;  /* better than absolute! */
-  font-size: 36px;
+  position: fixed;
+  font-size: 120px; /* Same height as email-loader (90px + padding) */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0.8); /* appear at 80% first */
   opacity: 0;
   transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
-
   color: #00BFFF;
   z-index: 10001;
   pointer-events: none;
 }
 
+
 /* When flying */
 .paper-plane-fly {
-  transform: translate(100vw, -50vh) rotate(45deg) scale(2);
+  transform: translate(100vw, -50vh) rotate(45deg) scale(1.5); /* grow slightly */
   opacity: 1;
 }
+
 
 
 #sparkle-container {
@@ -365,6 +367,67 @@ textarea:focus {
 @keyframes sparkle-fade {
   0% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0); }
+}
+
+#animated-contact {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  #animated-contact {
+    min-height: 100px; /* give more space for mobile */
+  }
+}
+
+#typewriter-text {
+  display: inline-block;
+  min-width: 300px; /* Reserve space */
+  min-height: 60px; /* Reserve height to avoid scroll jumps */
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.fade-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInLetter 0.4s forwards;
+}
+
+@keyframes fadeInLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #typewriter-text {
+    min-height: 80px;
+  }
+}
+
+.slide-in-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(5px); /* Smaller movement */
+  animation: slideInUp 0.4s forwards;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -505,49 +568,51 @@ textarea:focus {
     <script>
 
       const rotatingWords = [
-      "Contact Me",
-      "Need a Developer?",
-      "Let's Create Magic!",
-      "Make It Live!"
-    ];
-    
-    const typingSpeed = 50;
-    const deletingSpeed = 30;
-    const delayAfterTyping = 1500;
-    const delayBetweenWords = 500;
-    
-    let wordIndex = 0;
-    let letterIndex = 0;
-    let isDeleting = false;
-    
-    function typeWriter() {
-      const dynamicText = document.getElementById("typewriter-text");
-      const currentWord = rotatingWords[wordIndex % rotatingWords.length];
-    
-      if (!isDeleting) {
-        dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex)}</span>`;
-        letterIndex++;
-        if (letterIndex > currentWord.length) {
-          isDeleting = true;
-          setTimeout(typeWriter, delayAfterTyping);
-          return;
-        }
-      } else {
-        dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex)}</span>`;
-        letterIndex--;
-        if (letterIndex < 0) {
-          isDeleting = false;
-          wordIndex++;
-          setTimeout(typeWriter, delayBetweenWords);
-          return;
-        }
-      }
-      setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
+  "Contact Me",
+  "Need a Developer?",
+  "Let's Create Magic!",
+  "Make It Live!"
+];
+
+const typingSpeed = 100;
+const deletingSpeed = 50;
+const delayAfterTyping = 1500;
+const delayBetweenWords = 500;
+
+let wordIndex = 0;
+let letterIndex = 0;
+let isDeleting = false;
+
+function typeWriter() {
+  const dynamicText = document.getElementById("typewriter-text");
+  const currentWord = rotatingWords[wordIndex % rotatingWords.length];
+
+  if (!isDeleting) {
+    dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex + 1)}</span>`;
+    letterIndex++;
+    if (letterIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(typeWriter, delayAfterTyping);
+      return;
     }
-    
-    window.onload = function() {
-      setTimeout(typeWriter, 500);
+  } else {
+    dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex - 1)}</span>`;
+    letterIndex--;
+    if (letterIndex === 0) {
+      isDeleting = false;
+      wordIndex++;
+      setTimeout(typeWriter, delayBetweenWords);
+      return;
     }
+  }
+
+  setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
+}
+
+window.onload = function() {
+  setTimeout(typeWriter, 500);
+};
+
 
     window.addEventListener('load', function() {
       const pageLoader = document.getElementById('loader');
