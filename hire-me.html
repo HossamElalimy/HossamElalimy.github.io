@@ -216,7 +216,161 @@ textarea:focus {
   from { width: 0%; }
   to { width: 100%; }
 }
-  
+#email-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18,18,18,0.95);
+  display: none; /* Hidden initially */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* 📨 EMAIL Loader Shape */
+#email-loader .email-loader-icon {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 40px 60px 30px 60px;
+  border-color: #3760C9 #96DDFC #96DDFC #36BBF7;
+  animation: envFloating 1s ease-in infinite alternate;
+}
+
+#email-loader .email-loader-icon:after {
+  content:"";
+  position: absolute;
+  right: 62px;
+  top: -40px;
+  height: 70px;
+  width: 50px;
+  background-image:
+    linear-gradient(#fff 45px, transparent 0),
+    linear-gradient(#fff 45px, transparent 0),
+    linear-gradient(#fff 45px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 30px 4px;
+  background-position: 0px 11px, 8px 35px, 0px 60px;
+  animation: envDropping 0.75s linear infinite;
+}
+
+/* Animation for floating effect */
+@keyframes envFloating {
+  0% { transform: translate(-2px, -5px); }
+  100% { transform: translate(0, 5px); }
+}
+
+/* Animation for letter dropping lines */
+@keyframes envDropping {
+  0% { background-position: 100px 11px, 115px 35px, 105px 60px; opacity: 1; }
+  50% { background-position: 0px 11px, 20px 35px, 5px 60px; }
+  60% { background-position: -30px 11px, 0px 35px, -10px 60px; }
+  75%, 100% { background-position: -30px 11px, -30px 35px, -30px 60px; opacity: 0; }
+}
+
+/* Email Loader FADE/SLIDE Animations */
+/* 📨 Email Loader Enter: Slide from left + Bounce In */
+@keyframes slideInLeftBounce {
+  0% {
+    transform: translateX(-100vw); /* from very left OUTSIDE screen */
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(30px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 📨 Email Loader Exit: Slide to right + Fade Out */
+@keyframes planeFlyOut {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(30vw) translateY(-10vh) rotate(20deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateX(60vw) translateY(-30vh) rotate(45deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-50vh) rotate(60deg);
+    opacity: 0;
+  }
+}
+
+
+#email-loader.active {
+  display: flex;
+  animation: slideInLeftBounce 1s ease-out forwards; /* slower and buttery */
+}
+
+#email-loader.exit {
+  animation: planeFlyOut 1.5s ease-in forwards; /* smoother paper plane effect */
+}
+
+
+.paper-plane-icon {
+  position: fixed;  /* better than absolute! */
+  font-size: 36px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  color: #00BFFF;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+/* When flying */
+.paper-plane-fly {
+  transform: translate(100vw, -50vh) rotate(45deg) scale(2);
+  opacity: 1;
+}
+
+
+#sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #00BFFF 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle-fade 1s forwards;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+
+
+
+
           
       </style>
     <meta charset="utf-8">
@@ -257,6 +411,16 @@ textarea:focus {
 </head>
 
 <body class="contact-page">
+  <div id="email-loader">
+    <div class="email-loader-icon"></div>
+  </div>
+  
+  <div class="paper-plane-icon">✈️</div> <!-- OUTSIDE -->
+  <div id="sparkle-container"></div> <!-- 🌟 Sparkles container -->
+  
+  
+  
+  
   <div id="loader" class="loader-overlay">
     <span class="loader"></span>
   </div>
@@ -385,10 +549,65 @@ textarea:focus {
       setTimeout(typeWriter, 500);
     }
 
-      window.addEventListener('load', function() {
-          const loader = document.getElementById('loader');
-          loader.classList.add('hidden');
-      });
+    window.addEventListener('load', function() {
+      const pageLoader = document.getElementById('loader');
+      if (pageLoader) {
+          pageLoader.classList.add('hidden'); // hide page loader
+      }
+    });
+    
+    // Handle form submission (fixed)
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+    
+      const pageLoader = document.getElementById('loader');
+      const emailLoader = document.getElementById('email-loader');
+      const paperPlane = document.querySelector('.paper-plane-icon');
+      const sparkleContainer = document.getElementById('sparkle-container');
+    
+      if (pageLoader) {
+        pageLoader.style.display = 'none';
+      }
+    
+      if (emailLoader) {
+        emailLoader.classList.add('active');
+      }
+    
+      setTimeout(() => {
+        if (paperPlane) {
+          paperPlane.classList.add('paper-plane-fly'); // ✈️ make the plane fly
+          generateSparkles(); // ✨ create sparkles while flying
+        }
+        if (emailLoader) {
+          emailLoader.classList.remove('active');
+          emailLoader.classList.add('exit');
+        }
+      }, 2500); // after 2.5 seconds
+    
+      setTimeout(() => {
+        this.submit();
+      }, 3000);
+    
+      function generateSparkles() {
+        let sparkleInterval = setInterval(() => {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          // Position near the plane
+          const planeRect = paperPlane.getBoundingClientRect();
+          sparkle.style.left = (planeRect.left + planeRect.width/2) + 'px';
+          sparkle.style.top = (planeRect.top + planeRect.height/2) + 'px';
+          sparkleContainer.appendChild(sparkle);
+    
+          setTimeout(() => sparkle.remove(), 1000); // remove after fade
+        }, 100); // create sparkles every 100ms
+    
+        setTimeout(() => clearInterval(sparkleInterval), 1500); // stop after plane flight
+      }
+    });
+    
+    
+    
+    
       </script>
       
 </body>
