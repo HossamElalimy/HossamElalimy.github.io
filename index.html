@@ -326,94 +326,105 @@
     <script src="assets/js/pikaday.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script>
-       
-        const staticBefore = "Hello! I'm ";
-        const staticAfter = ", a Software Engineering graduate from MSA University. With a strong background in ";
-        const loopingWords = [" Full-stack Development", " Web Design", " SEO Optimization", " Leadership", " Marketing"];
-        
+        const staticBefore = "Hi! I'm ";
+        const staticMiddle = ", I'm a ";
+        const loopingWords = [
+          " Software Engineer",
+          " Full-Stack Developer",
+          " MERN-Stack Specialist",
+          " Microservices Architect",
+          " Cloud Solutions Builder"
+        ];
+      
         const typingSpeed = 40;
         const deletingSpeed = 30;
         const delayAfterTyping = 1500;
         const delayBetweenWords = 500;
-        
+      
         let textIndex = 0;
         let loopIndex = 0;
         let wordIndex = 0;
         let isDeleting = false;
-        let isStaticTyped = false;
-        
+        let isMiddleTyped = false;
+      
         function typeStaticText() {
-            const typewriterElement = document.getElementById("typewriter-text");
-        
-            if (textIndex < staticBefore.length) {
-                typewriterElement.innerHTML += staticBefore.charAt(textIndex);
-                textIndex++;
-                setTimeout(typeStaticText, typingSpeed);
-            } else if (textIndex === staticBefore.length) {
-                const bold = document.createElement("b");
-                bold.style.fontWeight = "bold";
-                bold.innerText = "Hossam Mohamed";
-                typewriterElement.appendChild(bold);
-                textIndex++;
-                setTimeout(typeStaticText, typingSpeed);
-            } else if (textIndex > staticBefore.length && textIndex <= staticBefore.length + staticAfter.length) {
-                const afterIndex = textIndex - (staticBefore.length + 1);
-                typewriterElement.innerHTML = staticBefore + "<b style='font-weight:bold;'>Hossam Mohamed</b>" + staticAfter.substring(0, afterIndex);
-                textIndex++;
-                setTimeout(typeStaticText, typingSpeed);
-            } else {
-                isStaticTyped = true;
-                createDynamicSpan();
-                typeLoopingWord();
-            }
+          const typewriterElement = document.getElementById("typewriter-text");
+      
+          if (textIndex < staticBefore.length) {
+            typewriterElement.innerHTML += staticBefore.charAt(textIndex);
+            textIndex++;
+            setTimeout(typeStaticText, typingSpeed);
+          } else if (textIndex === staticBefore.length) {
+            const bold = document.createElement("b");
+            bold.style.fontWeight = "bold";
+            bold.innerText = "Hossam Mohamed";
+            typewriterElement.appendChild(bold);
+            textIndex++;
+            setTimeout(typeStaticText, typingSpeed);
+          } else if (textIndex > staticBefore.length && textIndex <= staticBefore.length + staticMiddle.length) {
+            const middleIndex = textIndex - (staticBefore.length + 1);
+            typewriterElement.innerHTML = staticBefore + "<b style='font-weight:bold;'>Hossam Mohamed</b>" + staticMiddle.substring(0, middleIndex);
+            textIndex++;
+            setTimeout(typeStaticText, typingSpeed);
+          } else {
+            createDynamicSpan();
+            typeLoopingWord();
+          }
         }
-        
+      
         function createDynamicSpan() {
-            const span = document.createElement("span");
-            span.id = "dynamic-text";
-            span.classList.add('visible');
-            span.style.borderBottom = "2px solid #00BFFF";
-            span.style.paddingBottom = "2px";
-            document.getElementById("typewriter-text").appendChild(span);
+          const span = document.createElement("span");
+          span.id = "dynamic-text";
+          span.classList.add('visible');
+          span.style.borderBottom = "2px solid #00BFFF";
+          span.style.paddingBottom = "2px";
+          document.getElementById("typewriter-text").appendChild(span);
         }
-        
+        let btnShown = false;
         function typeLoopingWord() {
             const dynamicSpan = document.getElementById("dynamic-text");
             const currentWord = loopingWords[wordIndex % loopingWords.length];
-        
+          
             if (!isDeleting) {
-                dynamicSpan.innerHTML = currentWord.substring(0, loopIndex);
-                loopIndex++;
-                if (loopIndex > currentWord.length) {
-                    isDeleting = true;
-                    setTimeout(() => {
-                        dynamicSpan.classList.remove('visible');
-                        dynamicSpan.classList.add('fade');
-                        setTimeout(typeLoopingWord, delayBetweenWords);
-                    }, delayAfterTyping);
-                    return;
+              dynamicSpan.innerHTML = currentWord.substring(0, loopIndex);
+              loopIndex++;
+              if (loopIndex > currentWord.length) {
+                isDeleting = true;
+          
+                // ✅ Show the button only the first time we complete the first word
+                if (!btnShown) {
+                  document.getElementById("typewriter-btn").style.opacity = 1;
+                  btnShown = true;
                 }
+          
+                setTimeout(() => {
+                  dynamicSpan.classList.remove('visible');
+                  dynamicSpan.classList.add('fade');
+                  setTimeout(typeLoopingWord, delayBetweenWords);
+                }, delayAfterTyping);
+                return;
+              }
             } else {
-                dynamicSpan.innerHTML = currentWord.substring(0, loopIndex);
-                loopIndex--;
-                if (loopIndex < 0) {
-                    isDeleting = false;
-                    wordIndex++;
-                    dynamicSpan.classList.remove('fade');
-                    dynamicSpan.classList.add('visible');
-                }
+              dynamicSpan.innerHTML = currentWord.substring(0, loopIndex);
+              loopIndex--;
+              if (loopIndex < 0) {
+                isDeleting = false;
+                wordIndex++;
+                dynamicSpan.classList.remove('fade');
+                dynamicSpan.classList.add('visible');
+              }
             }
             setTimeout(typeLoopingWord, isDeleting ? deletingSpeed : typingSpeed);
-        }
-        
+          }
+      
         window.onload = typeStaticText;
       
-      
         window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
-            loader.classList.add('hidden');
+          const loader = document.getElementById('loader');
+          loader.classList.add('hidden');
         });
-        </script>
+      </script>
+      
         
 </body>
 
