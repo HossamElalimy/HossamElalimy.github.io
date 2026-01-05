@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" style="--bs-body-bg: #121212">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Hossam Mohamed</title>
+
+  <link rel="stylesheet" href="assets/fonts/ionicons.min.css" />
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allison&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Are+You+Serious&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arizonia&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Babylonica&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bad+Script&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ballet&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beth+Ellen&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calligraffitti&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charmonman&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" />
+  <link rel="stylesheet" href="assets/css/aos.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/pikaday.min.css" />
+  <!-- Primary: SVG favicon -->
+  <link rel="icon" href="assets/img/fav.svg" type="image/svg+xml">
+
+  <!-- Fallbacks (keep your PNG for older browsers) -->
+  <link rel="alternate icon" href="assets/img/Hfav.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Optional: Safari pinned tab (macOS) -->
+  <link rel="mask-icon" href="assets/img/Hfav.png" color="#00bfff">
+
+  <meta property="og:title" content="Hossam Mohamed | Portfolio" />
+  <meta property="og:description" content="Explore my projects, skills, and creative journey!" />
+  <meta property="og:image" content="https://hossamelelimy.me/assets/img/newhossam1.png" />
+  <meta property="og:url" content="https://hossamelelimy.me/" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    #typewriter-text::after {
+      content: "|";
+      animation: blink 1s infinite;
+      color: #00bfff
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
+
+    .glassy-navbar {
+      background: rgba(18, 18, 18, .55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 191, 255, .1);
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    @media (max-width:991px) {
+      .glassy-navbar {
+        background: rgba(18, 18, 18, .75) !important;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 10px 30px rgba(0, 191, 255, .25);
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        border-radius: 0 0 16px 16px;
+        padding: 12px 16px
+      }
+
+      .navbar-nav .nav-link {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 24px;
+        margin-bottom: 8px;
+        background: rgba(255, 255, 255, .03)
+      }
+
+      .navbar-nav .nav-link:hover {
+        background: rgba(0, 191, 255, .15);
+        color: #00bfff
+      }
+    }
+
+    body {
+      padding-top: 70px
+    }
+
+    @media (min-width:992px) {
+      .navbar-nav .nav-link.active {
+        position: relative;
+        color: #00bfff !important
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #00bfff;
+        border-radius: 2px
+      }
+    }
+
+    @media (max-width:991px) {
+      .navbar-nav .nav-link.active {
+        background-color: rgba(0, 191, 255, .1);
+        color: #00bfff !important;
+        border-radius: 16px
+      }
+    }
+
+    .job-date {
+      color: #ccc;
+      font-weight: 400;
+      font-size: .95rem;
+      display: inline-block;
+      margin-bottom: 8px
+    }
+
+    .loader {
+      transform: rotateZ(45deg);
+      perspective: 1000px;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      color: #fff;
+      position: relative
+    }
+
+    .loader:before,
+    .loader:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      transform: rotateX(70deg);
+      animation: 1s spin linear infinite
+    }
+
+    .loader:after {
+      color: #00bfff;
+      transform: rotateY(70deg);
+      animation-delay: .4s
+    }
+
+    @keyframes spin {
+
+      0%,
+      100% {
+        box-shadow: .2em 0 0 0 currentcolor
+      }
+
+      12% {
+        box-shadow: .2em .2em 0 0 currentcolor
+      }
+
+      25% {
+        box-shadow: 0 .2em 0 0 currentcolor
+      }
+
+      37% {
+        box-shadow: -.2em .2em 0 0 currentcolor
+      }
+
+      50% {
+        box-shadow: -.2em 0 0 0 currentcolor
+      }
+
+      62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor
+      }
+
+      75% {
+        box-shadow: 0 -.2em 0 0 currentcolor
+      }
+
+      87% {
+        box-shadow: .2em -.2em 0 0 currentcolor
+      }
+    }
+
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 18, 18, .95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity .5s ease, visibility .5s ease
+    }
+
+    .loader-overlay.hidden {
+      opacity: 0;
+      visibility: hidden
+    }
+
+    /* Job title underline animations */
+    .job-title-link {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      --u-delay: 0ms
+    }
+
+    .job-title-link h3 {
+      color: #e0e0e0;
+      margin: 0
+    }
+
+    .job-title-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #00bfff;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underline-draw 800ms cubic-bezier(.22, .61, .36, 1) var(--u-delay) forwards,
+        underline-breathe 3200ms ease-in-out calc(var(--u-delay) + 900ms) infinite
+    }
+
+    @keyframes underline-draw {
+      from {
+        transform: scaleX(0)
+      }
+
+      to {
+        transform: scaleX(1)
+      }
+    }
+
+    @keyframes underline-breathe {
+
+      0%,
+      100% {
+        opacity: .85
+      }
+
+      50% {
+        opacity: 1
+      }
+    }
+
+    .job-title-link.effect-sweep::after {
+      animation: underline-draw 800ms cubic-bezier(.22, .61, .36, 1) var(--u-delay) forwards,
+        underline-cycle 2.2s ease-in-out calc(var(--u-delay) + .9s) infinite
+    }
+
+    @keyframes underline-cycle {
+
+      0%,
+      60% {
+        transform: scaleX(1)
+      }
+
+      75% {
+        transform: scaleX(0)
+      }
+
+      100% {
+        transform: scaleX(1)
+      }
+    }
+
+    .job-title-link.effect-shimmer::after {
+      background: linear-gradient(90deg, #00bfff 0%, #7ddcff 50%, #00bfff 100%);
+      background-size: 200% 100%;
+      animation: underline-draw 800ms cubic-bezier(.22, .61, .36, 1) var(--u-delay) forwards,
+        underline-shimmer 2.4s linear calc(var(--u-delay) + 1s) infinite
+    }
+
+    @keyframes underline-shimmer {
+      0% {
+        background-position: 0% 0
+      }
+
+      100% {
+        background-position: 200% 0
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .job-title-link::after,
+      .job-title-link.effect-sweep::after,
+      .job-title-link.effect-shimmer::after {
+        animation: none;
+        transform: scaleX(1)
+      }
+    }
+
+    /* Heading signature underline (SVG) */
+    .heading-signature {
+      position: relative;
+      display: inline-block;
+      margin-inline: auto
+    }
+
+    .sig-underline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -14px;
+      width: clamp(180px, 55vw, 520px);
+      height: 40px;
+      overflow: visible
+    }
+
+    /* SOLID draw animation (no dashes after finish) */
+    .sig-underline .stroke {
+      fill: none;
+      stroke: #00bfff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      filter: drop-shadow(0 2px 6px rgba(0, 191, 255, .35));
+      stroke-dasharray: 100;
+      /* full length (with pathLength=100) */
+      stroke-dashoffset: 100;
+      /* fully hidden */
+      animation: sig-draw 900ms cubic-bezier(.22, .61, .36, 1) 150ms forwards
+    }
+
+    @keyframes sig-draw {
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    .sig-underline .flourish {
+      fill: none;
+      stroke: #00bfff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      opacity: 0;
+      animation: sig-pop 300ms ease 850ms forwards
+    }
+
+    @keyframes sig-pop {
+      to {
+        opacity: 1
+      }
+    }
+
+    /* Continuous shimmer (solid highlight) */
+    .sig-underline .shine {
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+      opacity: .7;
+      shape-rendering: geometricPrecision;
+      /* crisper sweep */
+      filter: url(#shine-soften)
+        /* soft glow */
+    }
+
+    /* Optional looping redraw for the base stroke */
+    .sig-underline.loop-sweep .stroke {
+      animation: sig-draw 900ms cubic-bezier(.22, .61, .36, 1) 150ms forwards,
+        sig-cycle 2.2s ease-in-out 1.2s infinite
+    }
+
+    @keyframes sig-cycle {
+
+      0%,
+      60% {
+        stroke-dashoffset: 0
+      }
+
+      75% {
+        stroke-dashoffset: 100
+      }
+
+      100% {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .sig-underline .stroke {
+        animation: none;
+        stroke-dashoffset: 0
+      }
+
+      .sig-underline .flourish {
+        animation: none;
+        opacity: 1
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader" class="loader-overlay"><span class="loader"></span></div>
+
+  <nav class="navbar navbar-expand-lg fixed-top glassy-navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand logo" href="index.html"
+        style="font-family:Babylonica,serif;font-size:43px;margin-left:-15px;color:#00bfff">
+        Hossam Mohamed
+      </a>
+      <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+        <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="color:#00bfff">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html" style="color:#00bfff">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects-grid-cards.html" style="color:#00bfff">Projects</a>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="cv.html" style="color:#00bfff">CV</a></li>
+          <li class="nav-item">
+            <a class="nav-link" data-bss-hover-animate="swing" href="hire-me.html"
+              style="color:var(--bs-primary);background:transparent;border-radius:32px;height:42px;border:1px solid var(--bs-primary)">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="portfolio-block cv">
+      <div class="container" data-aos="fade-up">
+        <div class="work-experience group" style="color:#e0e0e0" data-aos="fade-up">
+          <div class="heading text-center">
+            <div class="heading-signature">
+              <h2 class="flash animated" style="color:#e0e0e0;margin-bottom:18px">Work Experience</h2>
+
+              <!-- Fancy signature underline: solid draw + smooth shimmer -->
+              <svg class="sig-underline loop-shimmer" viewBox="0 0 600 70" preserveAspectRatio="xMidYMid meet"
+                aria-hidden="true">
+                <defs>
+                  <!-- glow for base stroke -->
+                  <filter id="sig-glow" x="-20%" y="-200%" width="140%" height="400%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <!-- ink gradient -->
+                  <linearGradient id="sig-ink" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00bfff" />
+                    <stop offset="50%" stop-color="#3fd7ff" />
+                    <stop offset="100%" stop-color="#00bfff" />
+                  </linearGradient>
+
+                  <!-- moving highlight gradient -->
+                  <linearGradient id="shine-grad" x1="-20%" y1="0%" x2="120%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(125,220,255,0)" />
+                    <stop offset="45%" stop-color="rgba(125,220,255,.95)" />
+                    <stop offset="55%" stop-color="rgba(125,220,255,.95)" />
+                    <stop offset="100%" stop-color="rgba(125,220,255,0)" />
+                    <animate attributeName="x1" values="-20%;120%" dur="2.6s" repeatCount="indefinite" />
+                    <animate attributeName="x2" values="120%;260%" dur="2.6s" repeatCount="indefinite" />
+                  </linearGradient>
+
+                  <!-- subtle soften for the shine -->
+                  <filter id="shine-soften" x="-20%" y="-200%" width="140%" height="400%">
+                    <feGaussianBlur stdDeviation="0.5" />
+                  </filter>
+                </defs>
+
+                <!-- main calligraphic swoosh -->
+                <path class="stroke" pathLength="100" filter="url(#sig-glow)"
+                  d="M16,44 C135,70 248,18 362,36 S528,58 586,36" stroke="url(#sig-ink)" stroke-width="5.2"
+                  stroke-linecap="round" fill="none" vector-effect="non-scaling-stroke" />
+
+                <!-- soft feather underlay -->
+                <path class="feather" d="M20,49 C140,73 254,27 366,42 S526,62 582,42" stroke="#00bfff"
+                  stroke-opacity=".18" stroke-width="8" stroke-linecap="round" fill="none" filter="url(#sig-glow)" />
+
+                <!-- elegant end loop flourish -->
+                <path class="flourish" pathLength="1" d="M510,40 q26,14 46,0 q18,-14 -2,-20 q-26,-8 -44,8"
+                  stroke="#00bfff" stroke-width="2.4" stroke-linecap="round" fill="none" />
+
+                <!-- smooth shimmering highlight -->
+                <path class="shine" pathLength="100" d="M16,44 C135,70 248,18 362,36 S528,58 586,36" fill="none"
+                  stroke="url(#shine-grad)" stroke-width="6" stroke-linecap="round" opacity=".7"
+                  vector-effect="non-scaling-stroke" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Roles -->
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <a href="https://ecodesign.global/more?tab=team" target="_blank" rel="noopener noreferrer"
+                  class="job-title-link effect-sweep" style="--u-delay:0ms;">
+                  <h3>CTO & Technical Lead</h3>
+                </a>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <a href="https://www.via-basket.com/en#home" target="_blank">
+                  <span class="badge rounded-pill bg-primary me-2">VIA</span>
+                </a>
+                <span class="job-date">10/2025 – Present</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Architecting and leading the VIA logistics platform with microservices
+              (Node.js, Express, PostgreSQL, <strong>PostGIS</strong>, React). Driving end-to-end delivery:
+              system design, geospatial APIs (<strong>Google Maps API</strong>, PostGIS), real-time tracking,
+              payments, and containerized deployments (Docker, Redis, Kafka). Coordinating cross-functional
+              teams to ensure scalable, secure, and high-availability operations for B2B/B2C marketplace delivery.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <a href="https://ecodesign.global/more?tab=team" target="_blank" rel="noopener noreferrer"
+                  class="job-title-link effect-sweep" style="--u-delay:0ms;">
+                  <h3>Full-Stack Software Engineer</h3>
+                </a>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <a href="https://www.via-basket.com/en#home" target="_blank">
+                  <span class="badge rounded-pill bg-primary me-2">VIA</span>
+                </a>
+                <span class="job-date">09/2025 – Present</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Building and scaling VIA's web services across the MERN stack (React, Node.js, Express, MongoDB).
+              Owning end-to-end feature delivery (API design, microservices, CI/CD, Docker) and front-end performance.
+              Collaborating with product and ops to ship secure, high-availability modules that streamline marketplace
+              workflows.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">System & Web Developer - Freelancer</h3>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <span class="badge rounded-pill bg-primary me-2">Remote</span>
+                <span class="job-date">04/2021 – Present</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Delivered 3+ client projects including a Hospital Management System, Teamly Platform, and an Architectural
+              Portfolio site. Designed and launched an RFID Attendance & Cashless Payment System with AI analytics,
+              cutting manual tasks by 70% and boosting efficiency. Currently developing the Egyptian Healthcare System
+              (EHS)
+              with Microservices, Docker, and Agile practices.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">Smart RFID-Based Attendance & Cashless Payment System</h3>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <span class="badge rounded-pill bg-primary me-2">MSA University</span>
+                <span class="job-date">12/2024 - 05/2025</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Graduation Project (Grade: A-): Built a full-stack RFID solution for real-time student tracking, cashless
+              payments, parental monitoring, and AI-powered behavior analytics. Delivered complete frontend, backend,
+              database, and ML modules with MERN, Docker, Microservices, and RESTful APIs.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">Vice President</h3>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <span class="badge rounded-pill bg-primary me-2">TITANSCLUBEG @ MSA University</span>
+                <span class="job-date">05/2024 - 02/2025</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Oversaw club leadership, aligning vision with MSA’s culture. Founded a junior outreach team to grow
+              university visibility, mentored new leads, and supported marketing collaboration with local schools and
+              sponsors.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">Operations Supervisor</h3>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <span class="badge rounded-pill bg-primary me-2">TITANSCLUBEG @ MSA University</span>
+                <span class="job-date">02/2024 - 05/2024</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Led the operations strategy for a major student club, coordinating event execution, internal logistics,
+              and communication with university officials. Developed systems to streamline junior team onboarding and
+              project tracking.
+            </p>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" class="education group">
+          <div class="heading">
+            <h2 class="text-center" style="color:#e0e0e0">Education</h2>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">B.Sc. in Computer Science, Software Engineering</h3>
+              </div>
+              <div class="col-md-6 d-flex flex-column align-items-md-end align-items-start">
+                <span class="badge rounded-pill bg-primary mb-1">Faculty of Computer Science, MSA University</span>
+                <span class="job-date">2020 – 08/2025</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Graduated with grade: Good. Dual degree validated by University of Greenwich (UK). Focus on full-stack
+              development,
+              system architecture, and project leadership.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                <h3 style="color:#e0e0e0">High School</h3>
+              </div>
+              <div class="col-md-6 text-md-end text-start">
+                <span class="badge rounded-pill bg-primary me-2">Al-Yamamah High School - Saudi Arabia</span>
+                <span class="job-date">2017 – 05/2020</span>
+              </div>
+            </div>
+            <p style="color:#e0e0e0">
+              Graduated under the Saudi Ministry of Education's Credit Hour System, with a focus on scientific subjects
+              and
+              advanced computer skills.
+            </p>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="border rounded border-0 skills portfolio-info-card" data-aos="fade-up">
+                <h2 style="color:#e0e0e0">Skills</h2>
+                <h3 style="color:#e0e0e0">HTML</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
+                    <span class="visually-hidden">95%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">CSS</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="80" style="width:80%"><span
+                      class="visually-hidden">80%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">JavaScript</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="70" style="width:70%"><span
+                      class="visually-hidden">70%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">Express.js</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="60" style="width:60%"><span
+                      class="visually-hidden">60%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">React.js</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="70" style="width:70%"><span
+                      class="visually-hidden">70%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">Node.js</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="80" style="width:80%"><span
+                      class="visually-hidden">80%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">MongoDB</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="80" style="width:80%"><span
+                      class="visually-hidden">80%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">PHP</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="50" style="width:50%"><span
+                      class="visually-hidden">50%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">Bootstrap Studio</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="65" style="width:65%"><span
+                      class="visually-hidden">65%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">Tailwind css</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="65" style="width:65%"><span
+                      class="visually-hidden">65%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">Flutter</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="20" style="width:20%"><span
+                      class="visually-hidden">20%</span></div>
+                </div>
+                <h3 style="color:#e0e0e0">React Native</h3>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuenow="40" style="width:40%"><span
+                      class="visually-hidden">40%</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="border rounded border-0 contact-info portfolio-info-card" data-aos="fade-up">
+                <h2 style="color:#e0e0e0">Contact Info</h2>
+                <div class="row">
+                  <div class="col-auto"><i class="icon ion-android-calendar icon"></i></div>
+                  <div class="col-9"><span style="color:#e0e0e0">21/05/2002</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-auto"><i class="icon ion-person icon"></i></div>
+                  <div class="col-9"><span style="color:#e0e0e0">Hossam Mohamed</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-auto"><i class="icon ion-social-linkedin-outline icon" style="font-size:25px"></i>
+                  </div>
+                  <div class="col-9"><span style="color:#e0e0e0">hossam-elalimy</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-auto"><i class="icon ion-at icon"></i></div>
+                  <div class="col-9"><span style="color:#e0e0e0">hossamoleemy@gmail.com</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <button onclick="startDownloadSequence()" class="btn btn-outline-primary btn-lg" style="border-radius:32px">
+            <i class="icon ion-android-download" style="margin-right:8px"></i>Download My CV (PDF)
+          </button>
+        </div>
+
+        <div class="hobbies group">
+          <div class="heading">
+            <h2 class="text-center" data-aos="fade-down" style="color:#e0e0e0">Hobbies</h2>
+          </div>
+          <p class="text-center" data-aos="fade-down" style="color:#e0e0e0">
+            I’m a social and outgoing person who enjoys connecting with others through shared experiences. I’m
+            passionate
+            about video games, especially competitive and story-driven titles. I also love playing football, exploring
+            new
+            places, and traveling to experience different cultures and perspectives.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer py-3" style="background:#121212;border-top:none">
+    <div class="container my-4 text-center">
+      <div class="links mb-3">
+        <a href="cv.html" style="color:#aaa;margin:0 10px">About me</a>
+        <a href="hire-me.html" style="color:#aaa;margin:0 10px">Contact me</a>
+        <a href="projects-grid-cards.html" style="color:#aaa;margin:0 10px">Projects</a>
+      </div>
+      <div class="social-icons mb-3">
+        <a data-bss-hover-animate="pulse" class="me-3" href="https://www.linkedin.com/in/hossam-elalimy/"
+          target="_blank" style="background:#1f1f1f;box-shadow:0 4px 20px 2px rgba(0,191,255,.4)"><i
+            class="icon ion-social-linkedin-outline" style="color:#fff"></i></a>
+        <a data-bss-hover-animate="pulse" class="me-3" href="mailto:hossamoleemy@gmail.com"
+          style="background:#1f1f1f;box-shadow:0 4px 20px 2px rgba(0,191,255,.4)"><i class="icon ion-ios-email-outline"
+            style="color:#fff"></i></a>
+        <a data-bss-hover-animate="pulse" class="me-3"
+          href="https://www.instagram.com/hossamelelimy?igsh=ZWV4cXM0ZWkzZ3Fr"
+          style="background:#1f1f1f;box-shadow:0 4px 20px 2px rgba(0,191,255,.4)"><i
+            class="icon ion-social-instagram-outline" style="color:#fff"></i></a>
+      </div>
+      <p style="color:#aaa;font-size:14px">
+        &copy; 2025 All rights reserved — Developed by
+        <a href="https://www.linkedin.com/in/hossam-elalimy/" target="_blank"
+          style="color:#00bfff;text-decoration:none">Hossam Elelimy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/aos.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script src="assets/js/pikaday.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+
+  <!-- Download Modal -->
+  <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content"
+        style="background:rgba(18,18,18,.75);backdrop-filter:blur(15px);border-radius:24px;border:1px solid #00bfff">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-white" id="cvModalLabel">Download CV</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="text-white">Click below to download my full CV in PDF format.</p>
+          <a href="assets/pdf/HossamMohammed.pdf" target="_blank" class="btn btn-primary" style="border-radius:32px">
+            <i class="icon ion-android-download me-2"></i>Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="cv-toast" style="display:none;position:fixed;bottom:20px;right:50%;transform:translateX(50%);max-width:90%;
+         background:rgba(0,191,255,.15);color:#00bfff;padding:12px 24px;border-radius:16px;backdrop-filter:blur(12px);
+         font-weight:500;z-index:9999;transition:opacity .5s ease;text-align:center">
+    Thanks for downloading my CV!
+  </div>
+
+  <script>
+    function showToast() {
+      const toast = document.getElementById("cv-toast");
+      toast.style.display = "block"; toast.style.opacity = "1";
+      setTimeout(() => { toast.style.opacity = "0" }, 1500);
+      setTimeout(() => { toast.style.display = "none"; toast.style.opacity = "1" }, 2000);
+    }
+
+    function startDownloadSequence() {
+      const modal = new bootstrap.Modal(document.getElementById("cvCountdownModal"));
+      const countdownText = document.getElementById("countdown-text");
+      modal.show();
+      let count = 3; countdownText.textContent = `Downloading in ${count}s...`;
+      const interval = setInterval(() => {
+        count--;
+        if (count > 0) { countdownText.textContent = `Downloading in ${count}s...`; }
+        else {
+          clearInterval(interval);
+          countdownText.textContent = "Downloading now...";
+          const link = document.createElement("a");
+          link.href = "assets/pdf/HossamMohammed.pdf";
+          link.download = "HossamMohammed.pdf";
+          link.style.display = "none";
+          document.body.appendChild(link); link.click(); document.body.removeChild(link);
+          setTimeout(() => { modal.hide(); }, 1000);
+        }
+      }, 1000);
+    }
+
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+    });
+  </script>
+
+  <!-- Countdown Modal -->
+  <div class="modal fade" id="cvCountdownModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content"
+        style="background:rgba(18,18,18,.75);backdrop-filter:blur(15px);border-radius:24px;border:1px solid #00bfff">
+        <div class="modal-body text-center">
+          <p class="text-white mb-0" id="countdown-text" style="font-size:1.2rem">Downloading in 3s...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

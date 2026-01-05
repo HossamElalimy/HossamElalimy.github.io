@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" style="--bs-body-bg: #121212">
+
+<head>
+  <style>
+    #typewriter-text::after {
+      content: "|";
+      animation: blink 1s infinite;
+      color: #00bfff;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .glassy-navbar {
+      background: rgba(18, 18, 18, 0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 191, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Enhanced mobile glass effect */
+
+    @media (max-width: 991px) {
+      .glassy-navbar {
+        background: rgba(18, 18, 18, 0.75) !important;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 10px 30px rgba(0, 191, 255, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0 0 16px 16px;
+        padding: 12px 16px;
+      }
+
+      .navbar-nav .nav-link {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 24px;
+        margin-bottom: 8px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .navbar-nav .nav-link:hover {
+        background: rgba(0, 191, 255, 0.15);
+        color: #00bfff;
+      }
+    }
+
+    body {
+      padding-top: 70px;
+    }
+
+    /* 🖥️ Desktop - underline effect for active link */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-link.active {
+        position: relative;
+        color: #00bfff !important;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #00bfff;
+        border-radius: 2px;
+      }
+    }
+
+    /* 📱 Mobile/Tablet - highlight active with soft background */
+    @media (max-width: 991px) {
+      .navbar-nav .nav-link.active {
+        background-color: rgba(0, 191, 255, 0.1);
+        color: #00bfff !important;
+        border-radius: 16px;
+      }
+    }
+
+    .loader {
+      transform: rotateZ(45deg);
+      perspective: 1000px;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      color: #fff;
+      position: relative;
+    }
+
+    .loader:before,
+    .loader:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      transform: rotateX(70deg);
+      animation: 1s spin linear infinite;
+    }
+
+    .loader:after {
+      color: #00bfff;
+      /* Your brand blue */
+      transform: rotateY(70deg);
+      animation-delay: 0.4s;
+    }
+
+    @keyframes spin {
+
+      0%,
+      100% {
+        box-shadow: 0.2em 0px 0 0px currentcolor;
+      }
+
+      12% {
+        box-shadow: 0.2em 0.2em 0 0 currentcolor;
+      }
+
+      25% {
+        box-shadow: 0 0.2em 0 0px currentcolor;
+      }
+
+      37% {
+        box-shadow: -0.2em 0.2em 0 0 currentcolor;
+      }
+
+      50% {
+        box-shadow: -0.2em 0 0 0 currentcolor;
+      }
+
+      62% {
+        box-shadow: -0.2em -0.2em 0 0 currentcolor;
+      }
+
+      75% {
+        box-shadow: 0px -0.2em 0 0 currentcolor;
+      }
+
+      87% {
+        box-shadow: 0.2em -0.2em 0 0 currentcolor;
+      }
+    }
+
+    /* Loader full screen background */
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 18, 18, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loader-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 220px;
+      /* Or whatever fixed height you like */
+      object-fit: cover;
+      border-radius: 8px;
+      /* Optional: for consistent rounded corners */
+    }
+  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Hossam Mohamed</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allison&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Are+You+Serious&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arizonia&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Babylonica&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bad+Script&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ballet&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beth+Ellen&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calligraffitti&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charmonman&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" />
+  <link rel="stylesheet" href="assets/fonts/ionicons.min.css" />
+  <link rel="stylesheet" href="assets/css/aos.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/pikaday.min.css" />
+  <!-- Primary: SVG favicon -->
+  <link rel="icon" href="assets/img/fav.svg" type="image/svg+xml">
+
+  <!-- Fallbacks (keep your PNG for older browsers) -->
+  <link rel="alternate icon" href="assets/img/Hfav.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Optional: Safari pinned tab (macOS) -->
+  <link rel="mask-icon" href="assets/img/Hfav.png" color="#00bfff">
+
+  <meta property="og:title" content="Hossam Mohamed | Portfolio" />
+  <meta property="og:description" content="Explore my projects, skills, and creative journey!" />
+  <meta property="og:image" content="https://hossamelelimy.me/assets/img/newhossam1.png" />
+  <meta property="og:url" content="https://hossamelelimy.me/" />
+  <meta property="og:type" content="website" />
+</head>
+
+<body>
+  <div id="loader" class="loader-overlay">
+    <span class="loader"></span>
+  </div>
+
+  <nav class="navbar navbar-expand-lg fixed-top glassy-navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand logo" href="index.html" style="
+            font-family: Babylonica, serif;
+            --bs-body-font-size: 66rem;
+            font-size: 43px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-left: -15px;
+            color: #00bfff;
+          ">Hossam Mohamed</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+        <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="color: #00bfff">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" style="color: #00bfff">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects-grid-cards.html" style="color: #00bfff">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html" style="color: #00bfff">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bss-hover-animate="swing" href="hire-me.html" style="
+                  color: var(--bs-primary);
+                  background: transparent;
+                  border-radius: 32px;
+                  height: 42px;
+                  border-top-left-radius: 32px;
+                  border-top-right-radius: 32px;
+                  border-bottom-right-radius: 32px;
+                  border-bottom-left-radius: 32px;
+                  transform-origin: 44px 19px;
+                  --bs-body-bg: #121212;
+                  --bs-body-color: #e0e0e0;
+                  border: 1px solid var(--bs-primary);
+                  border-top-width: 1px;
+                  border-top-color: var(--bs-primary);
+                  border-right-width: 1px;
+                  border-right-color: var(--bs-primary);
+                  border-bottom-width: 1px;
+                  border-bottom-color: var(--bs-primary);
+                  border-left-width: 1px;
+                  border-left-color: var(--bs-primary);
+                  transition: none;
+                ">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="page">
+    <section data-aos="fade-up" class="portfolio-block projects-cards">
+      <div class="container" style="color: #e0e0e0">
+        <div class="heading">
+          <h2>Recent Work</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 align-items-stretch">
+          <!-- Still Value -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://stillvalue.vercel.app/en" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/stillvalue.png"
+                  alt="Still Value — Real Estate Administration" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://stillvalue.vercel.app/en" target="_blank" rel="noopener noreferrer"
+                    style="color: #00bfff; font-weight: bold">
+                    Still Value — Real Estate Administration
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  Premium multilingual (EN/AR) Next.js platform for real estate
+                  administration properties. Features elegant dark/light themes,
+                  video hero sections, and a sophisticated catalog system with
+                  6 years of excellence serving 150+ clients.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIA -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://www.via-basket.com/en#home" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/via.png"
+                  alt="VIA — Fresh Produce Delivery Platform" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://www.via-basket.com/en#home" target="_blank" rel="noopener noreferrer"
+                    style="color: #00bfff; font-weight: bold">
+                    VIA — Fresh Produce Delivery Platform (CTO)
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  As CTO, architected and developed a scalable fresh produce
+                  delivery platform using microservices FastAPI backend and
+                  Next.js frontend with reusable components. Multilingual
+                  platform connecting customers with trusted vendors for the
+                  freshest produce anytime, anywhere.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smash & Bun -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://hossamelelimy.me/Smash-Bun/" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/smashandbun.png"
+                  alt="Smash & Bun — React + Vite + Bun" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://hossamelelimy.me/Smash-Bun/" target="_blank" rel="noopener noreferrer"
+                    style="color: #00bfff; font-weight: bold">
+                    Smash &amp; Bun — React · Vite · Bun
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  Flame-grilled burger concept site with fast Vite builds and
+                  Bun runtime. Clean UI, animations, and a focused landing
+                  experience.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teamly -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://hossamelalimy.github.io/Teamly/" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/teamlyimg.png"
+                  alt="Teamly – Productivity Platform Concept" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://hossamelalimy.github.io/Teamly/" style="color: #00bfff; font-weight: bold"
+                    target="_blank" rel="noopener noreferrer">
+                    Teamly – Productivity Platform Concept
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  A modern concept website designed to present Teamly’s
+                  productivity tools and collaboration features. Focused
+                  purely on showcasing the brand’s offering and clean
+                  interface.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conception Designs -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://hossamelalimy.github.io/ConceptionDesign/" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/conception.png"
+                  alt="Conception Designs – Interior Design Showcase" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://hossamelalimy.github.io/ConceptionDesign/" style="color: #00bfff; font-weight: bold"
+                    target="_blank" rel="noopener noreferrer">
+                    Conception Designs – Interior Design Showcase
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  A modern showcase for a high-end interior design studio.
+                  Highlights elegance, structure, and visual harmony with
+                  curated portfolios and project insights.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hospital Management System -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://github.com/HossamElalimy/Hospital" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/hospital.png"
+                  alt="Hospital Management System" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://github.com/HossamElalimy/Hospital" style="color: #00bfff; font-weight: bold"
+                    target="_blank" rel="noopener noreferrer">
+                    Hospital Management System
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  A robust PHP system for patient records, appointments, staff
+                  roles, and internal chat across doctors, receptionists, QA,
+                  and patients.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- EHS -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://www.linkedin.com/posts/egyptain-healthcare-system_ehs-healthtech-innovation-activity-7344556619239718912-r23I?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0q0iYBicogbG40X4OnEVh7D3AJw7xpfs4"
+                target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/ehs.jpg"
+                  alt="Egyptian Healthcare System (EHS)" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://www.linkedin.com/posts/egyptain-healthcare-system_ehs-healthtech-innovation-activity-7344556619239718912-r23I?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0q0iYBicogbG40X4OnEVh7D3AJw7xpfs4"
+                    style="color: #00bfff; font-weight: bold" target="_blank" rel="noopener noreferrer">
+                    Egyptian Healthcare System (EHS) — In Progress
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  Secure, scalable HealthTech platform (MERN, microservices,
+                  cloud, Docker) for unified records and smart services;
+                  active development.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud Management System -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://github.com/HossamElalimy/Cloud-Mangement-System" target="_blank"
+                rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/cloud.png"
+                  alt="Cloud Management System (QEMU & Docker)" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://github.com/HossamElalimy/Cloud-Mangement-System"
+                    style="color: #00bfff; font-weight: bold" target="_blank" rel="noopener noreferrer">
+                    Cloud Management System (QEMU & Docker)
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  Python tool to manage VMs and Docker: create disks, launch
+                  VMs, and handle images—hands-on virtualization and
+                  automation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RFID System -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://www.linkedin.com/posts/activity-7337250385511731202-n-Lk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0q0iYBicogbG40X4OnEVh7D3AJw7xpfs4"
+                target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/rfid%20(1).png"
+                  alt="Smart RFID Attendance & Cashless Payment System" loading="lazy"
+                  style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://www.linkedin.com/posts/activity-7337250385511731202-n-Lk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0q0iYBicogbG40X4OnEVh7D3AJw7xpfs4"
+                    style="color: #00bfff; font-weight: bold" target="_blank" rel="noopener noreferrer">
+                    Smart RFID Attendance &amp; Cashless Payment System (AI +
+                    ML)
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  MERN + AI/ML solution automating attendance and enabling
+                  secure campus payments; behavior analytics and real-time
+                  insights.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Librarykom -->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <a href="https://github.com/HossamElalimy/Library-Management-System---Librarykom" target="_blank"
+                rel="noopener noreferrer">
+                <img class="card-img-top scale-on-hover" src="assets/img/nature/library.png"
+                  alt="Librarykom — Library Management System" loading="lazy" style="background: transparent" />
+              </a>
+              <div class="card-body">
+                <h6>
+                  <a href="https://github.com/HossamElalimy/Library-Management-System---Librarykom"
+                    style="color: #00bfff; font-weight: bold" target="_blank" rel="noopener noreferrer">
+                    Librarykom — Library Management System
+                  </a>
+                </h6>
+                <p class="card-text" style="color: #e0e0e0">
+                  MERN platform for managing books, memberships,
+                  borrowing/returns with strong CRUD flows and clean DB
+                  design.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer py-3" style="background: #121212; border-top: none">
+    <div class="container my-4 text-center">
+      <div class="links mb-3">
+        <a href="cv.html" style="color: #aaaaaa; margin: 0 10px">About me</a>
+        <a href="hire-me.html" style="color: #aaaaaa; margin: 0 10px">Contact me</a>
+        <a href="projects-grid-cards.html" style="color: #aaaaaa; margin: 0 10px">Projects</a>
+      </div>
+      <div class="social-icons mb-3">
+        <a data-bss-hover-animate="pulse" class="me-3" style="
+              background: #1f1f1f;
+              box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);
+            " href="https://www.linkedin.com/in/hossam-elalimy/" target="_blank">
+          <i class="icon ion-social-linkedin-outline" style="color: #ffffff"></i>
+        </a>
+        <a data-bss-hover-animate="pulse" class="me-3" href="mailto:hossamoleemy@gmail.com" style="
+              background: #1f1f1f;
+              box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);
+            ">
+          <i class="icon ion-ios-email-outline" style="color: #ffffff"></i>
+        </a>
+        <a data-bss-hover-animate="pulse" class="me-3"
+          href="https://www.instagram.com/hossamelelimy?igsh=ZWV4cXM0ZWkzZ3Fr" style="
+              background: #1f1f1f;
+              box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);
+            ">
+          <i class="icon ion-social-instagram-outline" style="color: #ffffff"></i>
+        </a>
+      </div>
+      <p style="color: #aaaaaa; font-size: 14px">
+        &copy; 2025 All rights reserved — Developed by
+        <a href="https://www.linkedin.com/in/hossam-elalimy/" target="_blank"
+          style="color: #00bfff; text-decoration: none">Hossam Elelimy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/aos.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script src="assets/js/pikaday.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+    });
+  </script>
+</body>
+
+</html>

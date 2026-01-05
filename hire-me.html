@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" style="--bs-body-bg: #121212;">
+
+<head>
+    <style>
+     
+      
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+
+        .glassy-navbar {
+            background: rgba(18, 18, 18, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 191, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          }
+          
+  /* Enhanced mobile glass effect */
+  
+  @media (max-width: 991px) {
+    .glassy-navbar {
+      background: rgba(18, 18, 18, 0.75) !important;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(0, 191, 255, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 16px 16px;
+      padding: 12px 16px;
+    }
+   
+      
+    .navbar-nav .nav-link {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 24px;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+  
+    .navbar-nav .nav-link:hover {
+      background: rgba(0, 191, 255, 0.15);
+      color: #00BFFF;
+    }
+  }
+  body {
+    padding-top: 70px;
+  }
+/* 🖥️ Desktop - underline effect for active link */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link.active {
+      position: relative;
+      color: #00BFFF !important;
+    }
+  
+    .navbar-nav .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00BFFF;
+      border-radius: 2px;
+    }
+  }
+  
+  /* 📱 Mobile/Tablet - highlight active with soft background */
+  @media (max-width: 991px) {
+    .navbar-nav .nav-link.active {
+      background-color: rgba(0, 191, 255, 0.1);
+      color: #00BFFF !important;
+      border-radius: 16px;
+    }
+  }
+/* Default: contact button with border */
+.contact-btn {
+    border: 1px solid var(--bs-primary);
+    border-radius: 32px;
+    padding: 6px 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* 🔥 If we’re on the contact page, remove border */
+  body.contact-page .contact-btn {
+    border: none;
+  }
+  /* 🎯 Placeholder - muted white across all browsers */
+input::placeholder,
+textarea::placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #cccccc !important;  /* Brighter muted white */
+  opacity: 1 !important;
+}
+
+/* ✏️ Input and textarea text color */
+input,
+textarea {
+  color: #ffffff !important;  /* Full white */
+  background-color: transparent;
+  border-color: #00BFFF;
+}
+
+/* Focus state */
+input:focus,
+textarea:focus {
+  color: #ffffff !important;
+  background-color: transparent;
+  box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.3); /* Optional glow */
+  outline: none;
+}
+
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
+.loader:after {
+  color: #00BFFF; /* Your brand blue */
+  transform: rotateY(70deg);
+  animation-delay: .4s;
+}
+
+@keyframes spin {
+  0%, 100% { box-shadow: .2em 0px 0 0px currentcolor; }
+  12% { box-shadow: .2em .2em 0 0 currentcolor; }
+  25% { box-shadow: 0 .2em 0 0px currentcolor; }
+  37% { box-shadow: -.2em .2em 0 0 currentcolor; }
+  50% { box-shadow: -.2em 0 0 0 currentcolor; }
+  62% { box-shadow: -.2em -.2em 0 0 currentcolor; }
+  75% { box-shadow: 0px -.2em 0 0 currentcolor; }
+  87% { box-shadow: .2em -.2em 0 0 currentcolor; }
+}
+
+/* Loader full screen background */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#cursor {
+  display: none; /* Hide the blinking | cursor */
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.underline-animated {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-bottom: 2px solid #00BFFF; /* Always blue underline */
+  padding-bottom: 4px;
+}
+
+
+.underline-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: #00BFFF;
+  width: 0;
+  animation: underlineGrow 1s forwards;
+}
+
+@keyframes underlineGrow {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+#email-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18,18,18,0.95);
+  display: none; /* Hidden initially */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* 📨 EMAIL Loader Shape */
+#email-loader .email-loader-icon {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 40px 60px 30px 60px;
+  border-color: #3760C9 #96DDFC #96DDFC #36BBF7;
+  animation: envFloating 1s ease-in infinite alternate;
+}
+
+#email-loader .email-loader-icon:after {
+  content:"";
+  position: absolute;
+  right: 62px;
+  top: -40px;
+  height: 70px;
+  width: 50px;
+  background-image:
+    linear-gradient(#fff 45px, transparent 0),
+    linear-gradient(#fff 45px, transparent 0),
+    linear-gradient(#fff 45px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 30px 4px;
+  background-position: 0px 11px, 8px 35px, 0px 60px;
+  animation: envDropping 0.75s linear infinite;
+}
+
+/* Animation for floating effect */
+@keyframes envFloating {
+  0% { transform: translate(-2px, -5px); }
+  100% { transform: translate(0, 5px); }
+}
+
+/* Animation for letter dropping lines */
+@keyframes envDropping {
+  0% { background-position: 100px 11px, 115px 35px, 105px 60px; opacity: 1; }
+  50% { background-position: 0px 11px, 20px 35px, 5px 60px; }
+  60% { background-position: -30px 11px, 0px 35px, -10px 60px; }
+  75%, 100% { background-position: -30px 11px, -30px 35px, -30px 60px; opacity: 0; }
+}
+
+/* Email Loader FADE/SLIDE Animations */
+/* 📨 Email Loader Enter: Slide from left + Bounce In */
+@keyframes slideInLeftBounce {
+  0% {
+    transform: translateX(-100vw); /* from very left OUTSIDE screen */
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(30px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 📨 Email Loader Exit: Slide to right + Fade Out */
+@keyframes planeFlyOut {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(30vw) translateY(-10vh) rotate(20deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateX(60vw) translateY(-30vh) rotate(45deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-50vh) rotate(60deg);
+    opacity: 0;
+  }
+}
+
+
+#email-loader.active {
+  display: flex;
+  animation: slideInLeftBounce 1s ease-out forwards; /* slower and buttery */
+}
+
+#email-loader.exit {
+  animation: planeFlyOut 1.5s ease-in forwards; /* smoother paper plane effect */
+}
+
+
+.paper-plane-icon {
+  position: fixed;
+  font-size: 120px; /* Same height as email-loader (90px + padding) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8); /* appear at 80% first */
+  opacity: 0;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #00BFFF;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+
+/* When flying */
+.paper-plane-fly {
+  transform: translate(100vw, -50vh) rotate(45deg) scale(1.5); /* grow slightly */
+  opacity: 1;
+}
+
+
+
+#sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #00BFFF 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle-fade 1s forwards;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+#animated-contact {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  #animated-contact {
+    min-height: 100px; /* give more space for mobile */
+  }
+}
+
+#typewriter-text {
+  display: inline-block;
+  min-width: 300px; /* Reserve space */
+  min-height: 60px; /* Reserve height to avoid scroll jumps */
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.fade-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInLetter 0.4s forwards;
+}
+
+@keyframes fadeInLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #typewriter-text {
+    min-height: 80px;
+  }
+}
+
+.slide-in-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(5px); /* Smaller movement */
+  animation: slideInUp 0.4s forwards;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+          
+      </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hossam Mohamed</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allison&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Are+You+Serious&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arizonia&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Babylonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bad+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ballet&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beth+Ellen&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calligraffitti&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charmonman&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/pikaday.min.css">
+       <!-- Primary: SVG favicon -->
+<link rel="icon" href="assets/img/fav.svg" type="image/svg+xml">
+
+<!-- Fallbacks (keep your PNG for older browsers) -->
+<link rel="alternate icon" href="assets/img/Hfav.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+
+<!-- Optional: Safari pinned tab (macOS) -->
+<link rel="mask-icon"  href="assets/img/Hfav.png" color="#00bfff">
+
+    <meta property="og:title" content="Hossam Mohamed | Portfolio" />
+<meta property="og:description" content="Explore my projects, skills, and creative journey!" />
+<meta property="og:image" content="https://hossamelelimy.me/assets/img/newhossam1.png" />
+<meta property="og:url" content="https://hossamelelimy.me/" />
+<meta property="og:type" content="website" />
+
+</head>
+
+<body class="contact-page">
+  <div id="email-loader">
+    <div class="email-loader-icon"></div>
+  </div>
+  
+  <div class="paper-plane-icon">✈️</div> <!-- OUTSIDE -->
+  <div id="sparkle-container"></div> <!-- 🌟 Sparkles container -->
+  
+  
+  
+  
+  <div id="loader" class="loader-overlay">
+    <span class="loader"></span>
+  </div>
+  
+    <nav class="navbar navbar-expand-lg fixed-top glassy-navbar navbar-dark">
+        <div class="container"><a class="navbar-brand logo" href="index.html" style="font-family: Babylonica, serif;--bs-body-font-size: 66rem;font-size: 43px;padding-right: 0px;padding-left: 0px;margin-left: -15px;color: #00BFFF;">Hossam Mohamed</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="color: #00BFFF;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: #00BFFF;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects-grid-cards.html" style="color: #00BFFF;">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" style="color: #00BFFF;">CV</a></li>
+                    <li class="nav-item"><a class="nav-link contact-btn active" href="hire-me.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="portfolio-block hire-me">
+            <div class="container">
+              <div class="heading">
+                <h1 id="animated-contact" style="color: rgb(224,224,224); font-size: 48px; text-align: center; font-weight: bold;">
+                  <span id="typewriter-text"></span><span id="cursor">|</span>
+                </h1>
+              </div>
+              
+                <form action="https://formspree.io/f/xeogqyqz" method="POST" class="border rounded border-0 p-3 p-md-5" style="box-shadow: 0px 4px 16px 1px var(--bs-primary);border-color: var(--bs-primary);color: var(--bs-primary);">
+                    <div class="mb-3">
+                        <label class="form-label" for="subject" style="color: rgb(224,224,224);">Subject</label>
+                        <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email" style="color: rgb(224,224,224);">Your Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="message" style="color: rgb(224,224,224);">Message</label>
+                        <textarea class="form-control" id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="hire-date" style="color: rgb(224,224,224);">Preferred Date (optional)</label>
+                        <input class="form-control" id="hire-date" name="hire-date" type="date">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary d-block w-100" type="submit">Let's Connect!</button>
+                    </div>
+                </form>
+                
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer py-3" style="background: #121212; border-top: none;">
+        <div class="container my-4 text-center">
+            <div class="links mb-3">
+                <a href="cv.html" style="color: #AAAAAA; margin: 0 10px;">About me</a>
+                <a href="hire-me.html" style="color: #AAAAAA; margin: 0 10px;">Contact me</a>
+                <a href="projects-grid-cards.html" style="color: #AAAAAA; margin: 0 10px;">Projects</a>
+            </div>
+            <div class="social-icons mb-3">
+                <a data-bss-hover-animate="pulse" class="me-3" style="background: #1F1F1F; box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);" href="https://www.linkedin.com/in/hossam-elalimy/" target="_blank">
+                    <i class="icon ion-social-linkedin-outline" style="color: #FFFFFF;"></i>
+                </a>
+                <a data-bss-hover-animate="pulse" class="me-3" href="mailto:hossamoleemy@gmail.com" style="background: #1F1F1F; box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);">
+                    <i class="icon ion-ios-email-outline" style="color: #FFFFFF;"></i>
+                </a>
+                <a data-bss-hover-animate="pulse" class="me-3" href="https://www.instagram.com/hossamelelimy?igsh=ZWV4cXM0ZWkzZ3Fr" style="background: #1F1F1F; box-shadow: 0px 4px 20px 2px rgba(0, 191, 255, 0.4);">
+                    <i class="icon ion-social-instagram-outline" style="color: #FFFFFF;"></i>
+                </a>
+            </div>
+            <p style="color: #AAAAAA; font-size: 14px;">
+                &copy; 2025 All rights reserved — Developed by
+                <a href="https://www.linkedin.com/in/hossam-elalimy/" target="_blank" style="color: #00BFFF; text-decoration: none;">Hossam Elelimy</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/smart-forms.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script>
+
+      const rotatingWords = [
+  "Contact Me",
+  "Need a Developer?",
+  "Let's Create Magic!",
+  "Make It Live!"
+];
+
+const typingSpeed = 100;
+const deletingSpeed = 50;
+const delayAfterTyping = 1500;
+const delayBetweenWords = 500;
+
+let wordIndex = 0;
+let letterIndex = 0;
+let isDeleting = false;
+
+function typeWriter() {
+  const dynamicText = document.getElementById("typewriter-text");
+  const currentWord = rotatingWords[wordIndex % rotatingWords.length];
+
+  if (!isDeleting) {
+    dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex + 1)}</span>`;
+    letterIndex++;
+    if (letterIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(typeWriter, delayAfterTyping);
+      return;
+    }
+  } else {
+    dynamicText.innerHTML = `<span class="underline-animated">${currentWord.substring(0, letterIndex - 1)}</span>`;
+    letterIndex--;
+    if (letterIndex === 0) {
+      isDeleting = false;
+      wordIndex++;
+      setTimeout(typeWriter, delayBetweenWords);
+      return;
+    }
+  }
+
+  setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
+}
+
+window.onload = function() {
+  setTimeout(typeWriter, 500);
+};
+
+
+    window.addEventListener('load', function() {
+      const pageLoader = document.getElementById('loader');
+      if (pageLoader) {
+          pageLoader.classList.add('hidden'); // hide page loader
+      }
+    });
+    
+    // Handle form submission (fixed)
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+    
+      const pageLoader = document.getElementById('loader');
+      const emailLoader = document.getElementById('email-loader');
+      const paperPlane = document.querySelector('.paper-plane-icon');
+      const sparkleContainer = document.getElementById('sparkle-container');
+    
+      if (pageLoader) {
+        pageLoader.style.display = 'none';
+      }
+    
+      if (emailLoader) {
+        emailLoader.classList.add('active');
+      }
+    
+      setTimeout(() => {
+        if (paperPlane) {
+          paperPlane.classList.add('paper-plane-fly'); // ✈️ make the plane fly
+          generateSparkles(); // ✨ create sparkles while flying
+        }
+        if (emailLoader) {
+          emailLoader.classList.remove('active');
+          emailLoader.classList.add('exit');
+        }
+      }, 2500); // after 2.5 seconds
+    
+      setTimeout(() => {
+        this.submit();
+      }, 3000);
+    
+      function generateSparkles() {
+        let sparkleInterval = setInterval(() => {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          // Position near the plane
+          const planeRect = paperPlane.getBoundingClientRect();
+          sparkle.style.left = (planeRect.left + planeRect.width/2) + 'px';
+          sparkle.style.top = (planeRect.top + planeRect.height/2) + 'px';
+          sparkleContainer.appendChild(sparkle);
+    
+          setTimeout(() => sparkle.remove(), 1000); // remove after fade
+        }, 100); // create sparkles every 100ms
+    
+        setTimeout(() => clearInterval(sparkleInterval), 1500); // stop after plane flight
+      }
+    });
+    
+    
+    
+    
+      </script>
+      
+</body>
+
+</html>
